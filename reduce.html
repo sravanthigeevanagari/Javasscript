@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>mapreducefilter</title>
+</head>
+<body>
+ <div id="d"></div>
+ <div id="a"></div>
+	<script src='data.js'></script>
+	<script type="text/javascript">
+	
+		 function dataInfo(){
+		 	//var obj = []
+			//for(var i = 0 ; i < data.length; i = i+1){
+		 		//console.log(data[i])
+		 		//var arr = [];
+		 		//arr.push(data[i].firstName);
+				   
+		 		//console.log('firstName is:',data[i].firstName);
+		 		//arr.push(data[i].lastName);
+		 		//console.log('LastName is:',data[i].lastName);
+		 		 //arr.push(data[i].orders);
+		         //obj.push(arr);
+		 		//console.log('productName:',data[i].orders[i].productName);
+		var newNumArr = data.map(function(item){
+			console.log(item.lastName+item.firstName);
+			return "<div><p>"+item.orders[0].productName+"</p></div>";
+			
+		
+		})	
+		document.getElementById('a').innerHTML = newNumArr;
+		
+		//for(i=0 ;i< newNumArr.length; i++){
+		 // console.log(newNumArr[i].lastName+newNumArr[i].firstName);
+		   
+	//	}
+			var html = "<div><p>";	            
+      for(var i = 0 ; i < data.length; i = i+1){
+
+
+   
+     
+	 html+=data[i].firstName;
+	  html+=data[i].lastName;
+				html+="</p>";
+	 for(j=0;j<data[i].orders.length;j++)
+        {
+		 html+="<table border='1'>";
+		 html+="<tr>";
+             html+="<td>"+data[i].orders[j].productName+"</td>";
+			 html+="<td>"+data[i].orders[j].itemCost+"</td>";
+			 html+="</tr>";
+			 html+="</table>";
+        }
+    
+	html+="</div>";
+
+    
+
+}
+
+document.getElementById("d").innerHTML = html;
+				
+		 	}	
+		 	//return obj;
+		//ss }
+		 var Cust = dataInfo();
+		 
+		</script>
+		
+	</body>
+	</html>
